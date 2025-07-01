@@ -38,7 +38,7 @@ pip install selenium openpyxl
 
 5. Provided in the folder is an Excel file called “test.xlsx”. This can be used to input the Property IDs. 
 Excel Spreadsheet Columns:
-	•	Column A = prop_id (These must be already inputted by the user
+	•	Column A = prop_id (These must be already inputted by the user)
 	•	Column B = owner_name
 	•	Column C = owner_address
 6. Select a county, upload an Excel file, and run the scraper.
