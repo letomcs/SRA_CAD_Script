@@ -25,9 +25,11 @@ class Panola():
             options.add_argument("--start-maximized")
             driver = webdriver.Chrome(options=options)
 
+            # Load the URL to the search page
             driver.get("https://www.panolacad.org/home/Custom?custurl=/home")
             print("Opened the website successfully.")
 
+            # Loop through each Property ID in Excel
             for row in input_ws.iter_rows(min_row=2, values_only=True):
                 prop_id = str(row[0]).strip()
                 if not prop_id or prop_id == "None":
@@ -42,11 +44,6 @@ class Panola():
                 search_input.clear()
                 search_input.send_keys(prop_id)
                 search_input.send_keys(Keys.RETURN)
-
-                # # Wait for result table to load
-                # WebDriverWait(driver, 10).until(
-                #     EC.presence_of_element_located((By.XPATH, '//*[@id="resultListDiv"]'))
-                # )
 
                 # Click the first result row
                 try:
@@ -81,6 +78,7 @@ class Panola():
                 # Return to the search page
                 driver.get("https://www.panolacad.org/home/Custom?custurl=/home")  
 
+            # Output the extracted information into Excel
             output_wb.save(output_path)
             print("Results saved successfully.")
             return "Success"
