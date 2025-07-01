@@ -5,7 +5,7 @@ import os
 
 window = Tk()
 window.geometry("450x520")
-window.title('SRA Automated Extract-N-Fill')
+window.title('SRA CAD Extract-N-Fill')
 
 # --- COUNTY SELECTION ---
 Label(window, text="Select a County:").pack(anchor='w', padx=10, pady=(20, 0))
@@ -65,11 +65,11 @@ def submit():
         result = script_instance.process_data(input_excel, output_path)
 
         if result == "Success":
-            status_label.config(text="✅ Excel spreadsheet filled", fg="green")
+            status_label.config(text="Excel Spreadsheet Filled ✅", fg="green")
         else:
             status_label.config("A problem has occurred", fg="red")
     except Exception as e:
-        status_label.config(text=f"❌ Error: {e}", fg="red")
+        status_label.config(text=f"Error ❌: {e}", fg="red")
 
 # --- RUN BUTTON ---
 Button(window, text="Run", command=submit).pack(side=BOTTOM, pady=20)
