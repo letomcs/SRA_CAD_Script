@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import filedialog, ttk
-import importlib
+import importlib.util
 import os
 
 window = Tk()
